@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
-# 消費紀錄系統 Streamlit 雲端版 v1.0
+# 消費紀錄系統 Streamlit 雲端版 v1.1（使用環境變數設定密碼）
 
 import streamlit as st
 import pandas as pd
+import os
 from io import StringIO
 
 # =======================
 # 基本設定
 # =======================
 st.set_page_config(page_title="消費紀錄系統", page_icon="💰", layout="centered")
-PASSWORD = "1234"  # <--- 可自行修改密碼
+
+# 從環境變數讀取密碼（如未設定則預設為 1234）
+PASSWORD = os.getenv("APP_PASSWORD", "1234")
 
 # =======================
 # 登入機制
